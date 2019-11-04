@@ -1,0 +1,61 @@
+﻿<Window x:Class="RetakeTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RetakeTest"
+        mc:Ignorable="d"
+          Title="Employee Service" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DataGrid  Name="EmpDataGrid" ColumnHeaderHeight="25"  Margin="15,0,15,0" AutoGenerateColumns="False" IsReadOnly="true"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="EmpDataGrid_SelectionChanged" SelectedCellsChanged="EmpDataGrid_SelectedCellsChanged" >
+            <DataGrid.Columns>
+
+                <DataGridTextColumn  Header="Employee"  Width="150"  Binding="{Binding ENAME}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Job" Width="150" Binding="{Binding JOB}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Department Name" Width="200" Binding="{Binding DEPT.DNAME}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Salary" Width="150" Binding="{Binding SAL}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+    <StackPanel  Grid.Column="1" Grid.Row="2">
+            <Label Name="addStudent" HorizontalAlignment="Left"  Margin="10 10 0 0">Edit Employee</Label>
+            
+        <StackPanel  Orientation="Horizontal">
+                <Label x:Name="nameLabel"  Content="Name" HorizontalAlignment="Left" Margin="20,10,0,0"/>
+                <TextBox x:Name="FirstNameTextBox"   HorizontalAlignment="Center" VerticalAlignment="Center" Padding="1" Margin="10 0" Height="28" Width="290"  />
+            </StackPanel >
+                <StackPanel  Orientation="Horizontal">
+                <Label x:Name="jobLabel" Margin="34,10,0,0" HorizontalAlignment="Left"  Content="Job"/>
+                <TextBox x:Name="JobTextBox"   HorizontalAlignment="Center" VerticalAlignment="Center" Height="28"  Width="290"   Margin="10 0"/>
+
+            </StackPanel>
+            <Button x:Name="AddButton"  HorizontalAlignment="Left"  Margin="236 0 0 0" Height="30" FontSize="18" FontWeight="Bold"   Click="addClick"  Width="125"   Content="Save Changes"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <Label Margin="30 10 0 0" Name="searchStudent"   >Search</Label>
+            <TextBox x:Name="SearchTextBox"  Height="28" Width="350"  HorizontalAlignment="Left"  Margin="23 0 0 0" />
+            <StackPanel Orientation="Horizontal" Margin="10" >
+                <Button Name="searchButton"   Click="SearchButton_Click" Height="30" FontSize="16"  Margin="12 0 0 0" FontWeight="Bold" Width="170" >Search</Button>
+                <Button Name="searchAllButton"  Click="SearchAllButton_Click" Height="30" FontSize="16"   Margin="11 0 0 0" FontWeight="Bold" Width="170">Search All</Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
