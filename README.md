@@ -1,4 +1,4 @@
-# WPF Project
+# Employee Displayer WPF
 
 APBD - Database applications
 
